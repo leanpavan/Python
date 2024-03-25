@@ -11,6 +11,9 @@ Região Sul R$ 300,00 R$ 550,00
 destino = input("Selecione a região que deseja viajar (Norte, Nordeste, Centro-Oeste, Sul): ")
 passagem = int(input("Escolha se deseja passagem só de ida ou ida e volta (1 - Ida / 2 - Ida e Volta): "))
 
+
+
+
 if destino.lower() == "norte":
     if passagem == 1:
         print("O destino escolhido foi a região Norte, com passagem só de ida no valor de R$500,00")

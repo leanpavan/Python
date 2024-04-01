@@ -15,7 +15,6 @@ vá para a etapa 5.
 4. O ano é bissexto (tem 366 dias).
 5. O ano não é um ano bissexto (tem 365 dias)
 '''
-import datetime
 
 def ano_bissexto(ano):
     if ano % 4 != 0:
@@ -35,6 +34,7 @@ def adicionar_data(dia, mes, ano, hora, minuto, segundo, add_data, data_type):
         dia = 1
     elif data_type.lower() == "hora":
         total_segundos += dia * 24 * 60 * 60 + hora * 60 * 60
+
 
 # Input
 print("Digite a data e hora:")

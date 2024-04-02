@@ -1,4 +1,5 @@
 '''
+
 8. Implemente um programa que solicite uma data com hora, pedindo em separado: dia,
 mês, ano, hora, minuto e segundo. Pergunte ao usuário que informação ele deseja
 acrescentar, e em qual quantidade. Informar a nova data de acordo com o solicitado pelo
@@ -14,38 +15,34 @@ vá para a etapa 4.
 vá para a etapa 5.
 4. O ano é bissexto (tem 366 dias).
 5. O ano não é um ano bissexto (tem 365 dias)
+
 '''
+from datetime import datetime, timedelta
 
-def ano_bissexto(ano):
-    if ano % 4 != 0:
-        return False
-    elif ano % 100 != 0:
-        return True
-    elif ano % 400 != 0:
-        return False
-    else:
-        return True
+# Solicita a data e hora ao usuário
+day = int(input("Digite o dia: "))
+month = int(input("Digite o mês: "))
+year = int(input("Digite o ano: "))
+hour = int(input("Digite a hora: "))
+minute = int(input("Digite os minutos: "))
+second = int(input("Digite os segundos: "))
 
-def adicionar_data(dia, mes, ano, hora, minuto, segundo, add_data, data_type):
-    total_segundos = segundo + 60 * (minuto + 60 * hora)
-    dias_maximos = [31, ano_bissexto(ano), 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
-    if data_type.lower() == "dia":
-        total_segundos += dia * 24 * 60 * 60
-        dia = 1
-    elif data_type.lower() == "hora":
-        total_segundos += dia * 24 * 60 * 60 + hora * 60 * 60
+# Cria um objeto datetime com a data e hora fornecidas pelo usuário
+date_time = datetime(year, month, day, hour, minute, second)
 
+# Pergunta ao usuário que informação deseja acrescentar e em qual quantidade
+unit = input("Que unidade deseja adicionar (segundo, minuto, hora, dia)? ").lower()
+increment = int(input("Quantidade a ser acrescentada: "))
 
-# Input
-print("Digite a data e hora:")
-dia = int(input("Dia: "))
-mes = int(input("Mês no formato (1 - Janeiro 2 - Fevereiro, etc): "))
-ano = int(input("Ano: "))
-hora = int(input("Hora: "))
-minuto = int(input("Minuto: "))
-segundo = int(input("Segundo: "))
+# Adiciona a quantidade especificada à data e hora
+if unit == "segundo":
+    date_time += timedelta(seconds=increment)
+elif unit == "minuto":
+    date_time += timedelta(minutes=increment)
+elif unit == "hora":
+    date_time += timedelta(hours=increment)
+elif unit == "dia":
+    date_time += timedelta(days=increment)
 
-# Input do que vai ser adicionado
-data_type = input("Forneça o tipo de informação a ser adicionada (dia, hora, minuto ou segundo): ")
-add_data = int(input("Forneça o quanto será adicionado: "))
-
+# Exibe a nova data e hora
+print("A nova data é:", date_time.strftime("%d/%m/%Y %H:%M:%S"))

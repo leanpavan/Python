@@ -3,14 +3,43 @@
 crescente.
 '''
 
-numeros = []
-num_ord = 0
+num = 0
+maior = 0
+segundo = 0
+terceiro = 0
+quarto = 0
+menor = 0
 
 for i in range(5):
-    num = int(input("Digite um número: "))
+    num = int(input(f"Digite o {i + 1} número: "))
+    if i == 0:
+        maior = num
+        menor = num
+    if i == 1:
+        if num > maior:
+            maior = num
+        else:
+            menor = num
+    if i == 2:
+        if num > maior:
+            segundo = maior
+            maior = num
+        elif num > menor:
+            segundo = num
+        elif num < menor:
+            quarto = menor
+            menor = num
+    if i == 3:
+        if num > maior:
+            terceiro = segundo
+            segundo = maior
+            maior = num
+        elif num > segundo:
+            terceiro = segundo
+            segundo = num
+        elif num > menor and num > quarto:
+            terceiro = num
 
-    numeros.append(num)
-    num_ord = sorted(numeros)
 
-print(num_ord)
+print(f"\n{menor},{quarto},{terceiro},{segundo},{maior}")
 

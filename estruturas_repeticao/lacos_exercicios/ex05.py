@@ -5,8 +5,8 @@ um programa em Python que seja capaz de calcular e iterativamente e no fim impri
 tempo necessário para que a população do país A ultrapasse a população do país B.
 '''
 
-a = 5000000
-b = 7000000
+a = int(5000000)
+b = int(7000000)
 ano = 0
 while a < b:
     ano += 1
@@ -15,6 +15,6 @@ while a < b:
     a += a_natalidade
     b += b_natalidade
 
-print(f"População de A: {a}")
-print(f"População de B: {b}")
+print(f"População de A: {int(a)}")
+print(f"População de B: {int(b)}")
 print(f"Após {ano} anos")

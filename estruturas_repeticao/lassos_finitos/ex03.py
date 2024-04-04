@@ -6,10 +6,12 @@ desconsiderar letras maiúsculas e acentos.
 
 resultado = ""
 
-frase = input("Digite umaa frase: ")
+frase = input("Digite uma frase: ")
 
-for i in range(len(frase)):
-    if frase[i] != "a" and frase[i] != "e" and frase[i] != "i" and frase[i] != "o" and frase[i] != "u":
-        resultado += frase[i]
+for i in frase:
+    '''if frase[i] != "a" and frase[i] != "e" and frase[i] != "i" and frase[i] != "o" and frase[i] != "u":
+        resultado += frase[i]'''
+    if i not in "aeiou":
+        resultado += i
 
 print(f"A frase sem vogais fica {resultado}")

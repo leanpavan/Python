@@ -3,20 +3,22 @@
 primeiro e último nome.
 '''
 
-nome_completo = input("Digite seu nome completo: ")
+full_name = input("Digite seu nome completo: ")
+first_name = ''
+last_name = ''
 
-print(nome_completo)
-primeiro_nome = ''
-ultimo_nome = ''
+espaco = False
 
-i = 0
-while i < len(nome_completo):
-    if nome_completo[i] != "":
-        primeiro_nome += nome_completo[i]
+for l in full_name:
+    if l == " ":
+        espaco = True
+    if l == " ":
+        last_name = ""
+    if espaco == True:
+        last_name += l
     else:
-        break
-    i += 1
-i += 1
+        first_name += l
 
 
-print(primeiro_nome)
+print(f"\n{first_name}{last_name}")
+

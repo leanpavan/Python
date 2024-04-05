@@ -3,71 +3,27 @@
 crescente.
 '''
 
-num = 0
-maior = 0
-segundo = 0
-terceiro = 0
-quarto = 0
-menor = 0
+num1 = float(input("Digite o 1ª número: ")) #Menor
+num2 = float(input("Digite o 2ª número: "))
+num3 = float(input("Digite o 3ª número: "))
+num4 = float(input("Digite o 4ª número: "))
+num5 = float(input("Digite o 1ª número: ")) #Maior
+ordem = True
+while ordem:
+    ordem = False
+    if num1 > num2:
+        num1, num2 = num2, num1
+        ordem = True
+    if num2 > num3:
+        num2, num3 = num3, num2
+        ordem = True
+    if num3 > num4:
+        num3, num4 = num4, num3
+        ordem = True
+    if num4 > num5:
+        num4, num5 = num5, num4
+        ordem = True
 
-for i in range(5):
-    num = int(input(f"Digite o {i + 1} número: "))
-    if i == 0:
-        maior = num
-        menor = num
-
-    if i == 1:
-        if num > maior:
-            maior = num
-        else:
-            menor = num
-
-    if i == 2:
-        if num > maior:
-            segundo = maior
-            maior = num
-        elif num > menor:
-            segundo = num
-        elif num < menor:
-            quarto = menor
-            menor = num
-
-    if i == 3:
-        if num > maior:
-            terceiro = segundo
-            segundo = maior
-            maior = num
-        elif num > segundo:
-            terceiro = segundo
-            segundo = num
-        elif num > menor and num > quarto:
-            terceiro = num
-        elif num < menor:
-            quarto = menor
-            terceiro = quarto
-            menor = num
-        elif num < quarto:
-            terceiro = quarto
-            quarto = num
-
-        if i == 4:
-            if num > maior:
-                quarto = terceiro
-                terceiro = segundo
-                segundo = maior
-                maior = num
-            elif num > segundo:
-                quarto = terceiro
-                terceiro = segundo
-                segundo = num
-            elif num > terceiro:
-                quarto = terceiro
-                terceiro = num
-            elif num < menor:
-                quarto = menor
-                menor = num
-            else:
-                quarto = num
-
-    print(f"\n{menor},{quarto},{terceiro},{segundo},{maior}")
+print(f"\nOs números em ordem crescente são:")
+print(num1,num2,num3,num4,num5)
 

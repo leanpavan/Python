@@ -4,13 +4,23 @@ fazendo uso do método de divisões sucessivas.
 '''
 
 dec = int(input("Digite um número em decimal: "))
-dec_original = dec
-hex_characters = "0123456789ABCDEF"
+divisor = 16
+checker = ''
 hex = ''
+resto = ''
+resultado = dec
 
-while dec > 0:
-    resto = dec % 16
-    hex = hex_characters[resto] + hex
-    dec //= 16
+if dec < divisor:
+    hex = "0123456789ABCDEF"[dec]
+else:
+    while True:
+        resultado //= divisor
+        resto = dec % divisor
+        if resultado > 15:
+            hex  = "0123456789ABCDEF"[resto] + hex
+        else:
+            hex = "0123456789ABCDEF"[resultado] + "0123456789ABCDEF"[resto] + hex
+            break
 
-print(f"\nO número {dec_original} em hexadecimal é: {hex}")
+print(f"\nO número {dec} decimal equivale a {hex} hexadecimal")
+

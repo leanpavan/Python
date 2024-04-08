@@ -3,46 +3,21 @@
 porém, deve ser escolhido a quantidade de pontos a serem feitos para vencer.
 '''
 
-objetivo = int(input("Digite a quantidade de pontos necessários para vencer o jogo: "))
-pontos = 0
+pontos = int(input("Digite a pontuação necessária para a vitória: "))
+pontuacao_player1, pontuacao_player2 = 0, 0
+while pontuacao_player1 < pontos and pontuacao_player2 < pontos:
+    jogada1 = int(input("Player 1: Qual será sua jogada? [1 - PEDRA, 2 - PAPEL, 3 - TESOURA]: "))
+    jogada2 = int(input("Player 2: Qual será sua jogada? [1 - PEDRA, 2 - PAPEL, 3 - TESOURA]: "))
+    if jogada1 == 1 and jogada2 == 3 or jogada1 == 2 and jogada2 == 1 or jogada1 == 3 and jogada2 == 2:
+        pontuacao_player1 += 1
+        print("Player 1 vence a rodada!")
+        print(f"Player1: {pontuacao_player1} Player 2: {pontuacao_player2}")
+    else:
+        pontuacao_player2 += 1
+        print("Player 2 vence a rodada!")
+        print(f"Player1: {pontuacao_player1} Player 2: {pontuacao_player2}")
 
-pontosj1 = 0
-pontosj2 = 0
-
-while pontos < objetivo:
-    jogador1 = int(input("Jogador 1 faça sua jogada (1 - Pedra/2 - Papel/3 - Tesoura): "))
-    jogador2 = int(input("Jogador 2 faça sua jogada (1 - Pedra/2 - Papel/3 - Tesoura): "))
-    if jogador1 == 1:
-        if jogador2 == 2:
-            print("Jogador 2 venceu a rodada")
-            pontos += 1
-            pontosj2 += 1
-        if jogador2 == 3:
-            print("Jogador 1 venceu a rodada")
-            pontos += 1
-            pontosj1 += 1
-    if jogador1 == 2:
-        if jogador2 == 1:
-            print("Jogador 1 venceu a rodada")
-            pontos += 1
-            pontosj1 += 1
-        if jogador2 == 3:
-            print("Jogador 2 venceu a rodada")
-            pontos += 1
-            pontosj2 += 1
-    if jogador1 == 3:
-        if jogador2 == 1:
-            print("Jogador 2 venceu a rodada")
-            pontos += 1
-            pontosj2 += 1
-        if jogador2 == 2:
-            print("Jogador 1 venceu a rodada")
-            pontos += 1
-            pontosj1 += 1
-    if jogador1 == jogador2:
-        print("Empate")
-
-if pontosj1 > pontosj2:
-    print(f"\nO jogador 1 venceu")
+if pontos == pontuacao_player1:
+    print("Vitória do Player 1")
 else:
-    print(f"\nO jogador 2 venceu")
+    print("Vitória do Player 2")

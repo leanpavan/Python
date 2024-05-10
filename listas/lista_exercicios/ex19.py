@@ -14,21 +14,27 @@ possiveis_respostas = '''
 6- Outro
 '''
 print(possiveis_respostas)
-votos = []
+votos = [0] * 6
 while True:
-    resposta = int(input("Digite sua resposta (Digite 0 para parar): "))
-    if resposta == 0:
-        break
-    elif resposta > 6:
-        continue
-    else:
-        votos.append(resposta)
+    try:
+        resposta = int(input("Digite sua resposta (Digite 0 para parar): "))
+        if resposta == 0:
+            break
+        if not (0 <= resposta <= 6):
+            raise ValueError
+        votos[resposta-1] += 1
         print(votos)
+    except ValueError:
+        print("Voto invalido")
+        continue
+os = ["Windows Server", "Unix", "Linux", "Netware", "Mac OS", "Outro"]
+total_votos = sum(votos)
 
-windows = votos.count(1) / len(votos) * 100
-unix = votos.count(2) / len(votos) * 100
-linux = votos.count(3) / len(votos) * 100
-netware = votos.count(4) / len(votos) * 100
-mac = votos.count(5) / len(votos) * 100
-outro = votos.count(6) / len(votos) * 100
-print(windows)
+
+print(f"\nSistema Operacional       Votos       %")
+print(f"-------------------       -----       ---")
+for i in range(len(votos)):
+    porcentagem = votos[i] / total_votos * 100
+    print(f"{i+1}- {os[i]:<27}{votos[i]:}{porcentagem:>9.2f}%")
+print(f"-------------------       -----")
+print(f"Total{total_votos:>27}")

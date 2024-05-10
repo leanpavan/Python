@@ -1,13 +1,15 @@
 '''
-Faça um programa, com uma função que necessite de três argumentos, e que forneça a soma desses três
-argumentos.
+para um n informado pelo usuário. Use uma função que receba um valor n inteiro imprima até a n-ésima
+linha.
 '''
 
 
-def soma(arg1, arg2, arg3):
-    return arg1 + arg2 + arg3
+def imprimir(n):
+    for i in range(1, n + 1):
+        for j in range(1, i + 1):
+            print(j, end=' ')
+        print()
 
-arg1 = int(input('Digite o primeiro valor: '))
-arg2 = int(input('Digite o segundo valor: '))
-arg3 = int(input('Digite o terceiro valor: '))
-print(soma(arg1, arg2, arg3))
+
+num = int(input("Digite um número para imprimir (-1 para parar): "))
+imprimir(num)
